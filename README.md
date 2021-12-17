@@ -7,11 +7,11 @@ https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 
 You are allowed to:
--Distribute this code
--Remix, transform or build upon this code
-
-You are not allowed to:
--Use this code commercially
-
-
+-Distribute this code  
+-Remix, transform or build upon this code  
+  
+You are not allowed to:  
+-Use this code commercially  
+  
+  
 -Any modifications of this code must include the same license
