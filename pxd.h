@@ -146,4 +146,28 @@ namespace pxd
     public:
         int m_relative_ptr;
     };
+
+    template <typename _char, typename allocator>
+    struct t_string
+    {
+        struct bstr_t
+        {
+            struct header_t
+            {
+                unsigned int length;
+                _char sz_string[12 / sizeof(_char)];
+            };
+
+            union
+            {
+                __int64 mp_header : 44;
+                unsigned __int64 m_size : 20;
+                unsigned __int64 m_data;
+            };
+
+        };
+
+        pxd::t_string<_char, allocator>::bstr_t m_bstr;
+    };
+
 }
