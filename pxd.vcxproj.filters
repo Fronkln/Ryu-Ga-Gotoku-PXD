@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="array.h" />
+    <ClInclude Include="unknownstructs.h" />
+    <ClInclude Include="pxd.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="alignedtypes.h" />
+    <ClInclude Include="threading.h" />
+  </ItemGroup>
+</Project>
