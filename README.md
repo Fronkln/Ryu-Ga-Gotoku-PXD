@@ -6,7 +6,7 @@ Licensed under CC BY-NC-SA 4.0
 https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 
-You are allowed to:
+You are allowed to:  
 -Distribute this code  
 -Remix, transform or build upon this code  
   
