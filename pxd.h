@@ -147,6 +147,12 @@ namespace pxd
         int m_relative_ptr;
     };
 
+    template <typename T>
+    struct t_scoped_ptr
+    {
+        T* mp_raw_ptr;
+    };
+
     template <typename _char, typename allocator>
     struct t_string
     {
