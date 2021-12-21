@@ -205,6 +205,16 @@ namespace pxd
     {
     };
 
+    //Only used at one place in DE. Not really important?
+    template<typename T>
+    struct t_unique_id
+    {
+        pxd::spinlock_t m_sync;
+        unsigned int m_capacity;
+        unsigned int m_active_num;
+        unsigned int m_current_idx;
+        pxd::t_vector<unsigned __int64 *, 16, T> m_tbl_vector;
+    };
 
     template <typename T>
     struct t_avl_tree_node
