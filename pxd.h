@@ -103,9 +103,17 @@ namespace pxd
         };
     }
 
+    struct rwspinlock_t
+    {
+        volatile unsigned int m_lock_status;
+    };
 
 
-
+    struct gs_pattern_t
+    {
+        __int16 pattern[2];
+        float f_ratio;
+    };
 
     struct alignas(0x10) quaternion
     {
@@ -153,6 +161,22 @@ namespace pxd
         T* mp_raw_ptr;
     };
 
+    template <typename T>
+    struct t_status_ptr
+    {
+        union
+        {
+            struct
+            {
+                __int64 m_ptr : 48;
+                unsigned __int64 m_status : 16;
+            };
+
+            unsigned __int64 m_status_ptr;
+        };
+    };
+
+
     template <typename _char, typename allocator>
     struct t_string
     {
@@ -176,4 +200,58 @@ namespace pxd
         pxd::t_string<_char, allocator>::bstr_t m_bstr;
     };
 
+    template <typename T, typename T2>
+    struct t_compare
+    {
+    };
+
+
+    template <typename T>
+    struct t_avl_tree_node
+    {
+        class pair_t
+        {
+            pxd::t_status_ptr<T> mp_left;
+            pxd::t_status_ptr<T> mp_right;
+        };
+
+        //i..umm.. both classes are fucking same?
+        pxd::t_status_ptr<T> mp_left;
+        pxd::t_status_ptr<T> mp_right;
+    };
+
+    //no clue if the definition is correct
+    template <typename T, typename T2, typename T3, unsigned int num>
+    struct t_avl_tree
+    {
+        pxd::t_avl_tree_node<T> *mp_root;
+    };
+
+
+    template<typename T, typename T2>
+    class t_instance_map_pair_struct
+    {
+        pxd::t_avl_tree_node<T2> node;
+        T first;
+        T2 *second;
+    };
+
+    template<typename T, typename T2, typename comparer, typename allocator>
+    class t_instance_map
+    {
+        struct linker_t
+        {
+        };
+
+        struct pair_t
+        {
+            pxd::t_avl_tree_node<pxd::t_instance_map<T, T2, comparer, allocator>::pair_t> node;
+            T first;
+            T2 *second;
+        };
+
+        pxd::t_avl_tree_node<pxd::t_instance_map<T, T2, comparer, allocator>::pair_t> node;
+        T first;
+        T2 second;
+    };
 }
