@@ -36,11 +36,18 @@ namespace pxd
     template <typename T, typename allocator>
     struct t_instance_list
     {
+
+
         struct node_t
         {
             T* m_value;
-            pxd::t_instance_list<T*, allocator>::node_t *mp_prev;
-            pxd::t_instance_list<T*, allocator>::node_t *mp_next;
+
+            void *mp_prev;
+            void *mp_next;
+
+            //cant deal with these two right now
+            //t_instance_list<T*, allocator>::node_t *mp_prev;
+            //t_instance_list<T*, allocator>::node_t *mp_next;
         };
 
         pxd::t_pointer_list<pxd::t_instance_list<T, allocator>::node_t, pxd::t_pointer_list_linker<pxd::t_instance_list<T, allocator>::node_t>> m_list;

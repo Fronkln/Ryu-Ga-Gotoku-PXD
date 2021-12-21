@@ -18,6 +18,13 @@ namespace pxd
         {
             $081A7393FF78DEED396C29788378B83B ___u0;
         };
+
+        struct __declspec(align(16)) mutex_t
+        {
+            //_RTL_CRITICAL_SECTION m_cs;
+            uint8_t m_cs[0x28];
+        };
+
     }
 
     //these two have to stay here because of stuff
