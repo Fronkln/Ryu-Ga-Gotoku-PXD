@@ -250,8 +250,7 @@ namespace pxd
             T2 *second;
         };
 
-        pxd::t_avl_tree_node<pxd::t_instance_map<T, T2, comparer, allocator>::pair_t> node;
-        T first;
-        T2 second;
+        //improve definition
+        pxd::t_avl_tree<pxd::t_instance_map<T, T2, comparer, allocator>::pair_t, T, pxd::t_instance_map<T, T2, comparer, allocator>::linker_t, 24> m_tree;
     };
 }
