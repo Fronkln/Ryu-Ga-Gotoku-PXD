@@ -8,5 +8,9 @@
     <ClInclude Include="list.h" />
     <ClInclude Include="alignedtypes.h" />
     <ClInclude Include="threading.h" />
+    <ClInclude Include="sbgl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pxd.cpp" />
   </ItemGroup>
 </Project>

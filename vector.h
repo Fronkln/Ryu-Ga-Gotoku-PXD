@@ -9,7 +9,7 @@ namespace pxd
     public:
         T* mp_element;
         unsigned int m_vector_size;
-        unsigned m_element_size;
+        unsigned int m_element_size;
 
         void set(unsigned int index, T value)
         {
@@ -44,9 +44,13 @@ namespace pxd
     };
 
     template <typename T, unsigned int size, typename allocator>
-    struct t_vector : t_base_vector<T>
+    struct t_vector : public t_base_vector<T>
     {
-
+        t_vector()
+        {
+            this->mp_element = 0;
+            this->m_vector_size = 0;
+        }
     };
 
     template<typename T, unsigned int someVal, typename allocator>
@@ -60,5 +64,11 @@ namespace pxd
     {
         //how are these even calculated
         t_aligned_placeholder<T, count, sizeof(T)> m_placeholder;
+        
+        t_static_vector()
+        {
+            this->m_vector_size = count;
+            this->mp_element = (T*)&this->m_placeholder;
+        }
     };
 }
